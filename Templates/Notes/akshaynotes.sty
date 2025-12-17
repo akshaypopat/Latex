@@ -1,0 +1,54 @@
+%!tex root: main.tex
+\usepackage[a4paper,top=1in,bottom=1in,left=1.2in,right=1.2in,marginparwidth=1.75cm]{geometry}
+
+\usepackage{hyperref}
+\usepackage{bookmark}
+\usepackage{graphicx}
+\usepackage[english]{babel}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsmath, amsthm, amssymb, mathrsfs, bm, tikz}
+\usepackage{hyperref, enumitem, mathtools}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\newtheoremstyle{mydefinition}
+  {1em}     % Space above
+  {1em}     % Space below
+  {\normalfont} % Body font
+  {}        % Indent amount
+  {\bfseries} % Theorem head font
+  {.}        % Punctuation after theorem head
+  { }        % Space after theorem head
+  {}         % Theorem head spec
+
+\let\emph\relax
+\DeclareTextFontCommand{\emph}{\bfseries}
+
+\theoremstyle{mydefinition}
+\newtheorem{definition}[theorem]{Definition}
+
+\newtheoremstyle{myexample}
+  {1em}     % Space above
+  {3pt}     % Space below
+  {\normalfont} % Body font
+  {}        % Indent amount
+  {\bfseries} % Theorem head font
+  {.}        % Punctuation after theorem head
+  { }        % Space after theorem head
+  {}         % Theorem head spec
+
+\theoremstyle{myexample}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{nonexample}[theorem]{Non-example}
+\newtheorem{exercise}[theorem]{Exercise}
+
+\usepackage{xcolor}
+\newcommand\myworries[1]{\textcolor{red}{#1}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
