@@ -1,0 +1,115 @@
+\documentclass[./main.tex]{subfiles}
+
+\begin{document}
+We fix an algebraically closed field $k$ which we work over for the entirety of this chapter, and let $A = k[x_1, \dots, x_n]$
+
+  \begin{definition}
+    The \emph{zero set} for an ideal $\mathfrak{a} \subseteq A$ is the set
+    \[
+      Z(\mathfrak{a}) = \left\{ P \in k^n \; \middle| \; f(P) = 0 \text{ for all } f \in \mathfrak{a} \right\}.
+    \]
+  \end{definition}
+
+  Any collection of polynomials generates an ideal, and any ideal in $A$ is finitely generated. The zero set of a collection of polynomials is then the zero set of the ideal they generate, which is exactly the zeros of those polynomials. Also, the zero set of an ideal is exactly the zeros any generating set of that ideal. We denote, for example, the zero set of a polynomial $f$ by $Z(f)$, and the zero set of a collection of polynomials $T$ by $Z(T)$.
+
+  \begin{definition}
+    An subset $Y \subseteq k^n$ is \emph{algebraic} if it is a zero set.
+  \end{definition}
+
+  \begin{definition}
+    \emph{Affine $n$-space} over $k$, denoted $\mathbb{A}^n$, is the space $k^n$ equipped with the \emph{Zariski topology}, the topology where open sets are complements of algebraic sets. Equivalently, it is the topology where the closed sets are exactly the algebraic sets.
+  \end{definition}
+
+  \begin{definition}
+    The \emph{ideal} of a subset $Y \subseteq \mathbb{A}^n$, denoted $I(Y)$, is the set of polynomials that vanish on $Y$. That is,
+    \[
+      I(Y) = \left\{ f \in A \; \middle| \; f(P) = 0 \text{ for all } P \in Y \right\}
+    \]
+  \end{definition}
+
+  Taking zeros and ideals are not exactly inverses, but they are almost inverses. We make the relationship more precise.
+
+  \begin{theorem}[Hilbert's Nullstellensatz]
+    For any ideal $\mathfrak{a} \subseteq A$, if $f \in I(Z(\mathfrak{a}))$ then $f^r \in \mathfrak{a}$ for some non-negative integer $r$.
+  \end{theorem}
+
+  In other words, $I(Z(\mathfrak{a}))$ is the \emph{radical} of $\mathfrak{a}$:
+
+  \begin{definition}
+    In a ring $R$, the \emph{radical} of an ideal $\mathfrak{a}$ is
+    \[
+      \sqrt \mathfrak{a} = \left\{ f \in R \; \middle| \; f^r \in \mathfrak{a}\text{ for some non-negative integer } r\right\}.
+    \]
+    We say that an ideal is \emph{radical} if it is equal to its radical.
+  \end{definition}
+
+  Furthermore, we have the following properties.
+
+  \begin{proposition}
+    \begin{enumerate}[label=(\roman*)]
+      \item For any subsets $S \subseteq T \subseteq A$ we have $Z(T) \subseteq Z(S)$
+      \item For any subsets $X \subseteq Y \subseteq \mathbb{A}^n$ we have $I(Y) \subseteq I(X)$
+      \item For any collection of subsets $T_\alpha \subseteq A$ we have $Z(\bigcup_\alpha T_\alpha) = \bigcap_\alpha Z(T_\alpha)$
+      \item For any subsets $T_1, T_2 \subseteq A$ we have $Z(T_1) \cup Z(T_2) = Z(T_1 T_2)$
+      \item For any collection of subsets $Y_\alpha \subseteq \mathbb{A}^n$ we have $I(\bigcup_\alpha Y_\alpha) = \bigcap_\alpha I(Y_\alpha)$
+      \item For any subset $Y \subseteq \mathbb{A}^n$ we have $Z(I(Y)) = \overline{Y}$
+    \end{enumerate}
+  \end{proposition} 
+  \begin{proof}
+    (i)-(v) are obviously fine. We prove (vi). $Z(I(Y))$ is closed and obviously contains $Y$, so it is clear that $\overline{Y} \subseteq Z(I(Y))$. All that remains is to show the reverse inclusion $Z(I(Y)) \subseteq \overline{Y}$.
+
+    $\overline{Y}$ is closed, so we can write $\overline{Y} = Z(\mathfrak{a})$ for some ideal $\mathfrak{a} \subseteq A$. Then we know $Y \subseteq Z(\mathfrak{a})$ so $I(Y) \supseteq I(Z(\mathfrak{a})) \supseteq \mathfrak{a}$. Applying $Z$ to $\mathfrak{a} \subseteq I(Y)$ gives the result.
+  \end{proof}
+
+  So although we do not quite have a bijective correspondence between subsets of $\mathbb{A}^n$ and ideals of $A$, we do have a bijective correspondence of \emph{closed} subsets and \emph{radical} ideals, given by $Y \mapsto I(Y)$ and $\mathfrak{a} \mapsto Z(\mathfrak{a})$. We explore this correspondence a little bit further.
+
+  \begin{definition}
+    A non-empty subset $Y$ of a topological space $X$ is \emph{irreducible} if for any closed sets $Y_1$, $Y_2$,
+    \[
+      Y = Y_1 \cup Y_2 \implies Y_1 = Y \text{ or } Y_2 = Y.
+    \]
+  \end{definition}
+
+  \begin{definition}
+    A subset $Y \subseteq \mathbb{A}^n$ is an \emph{affine variety} if it is closed and irreducible.
+  \end{definition}
+
+  \begin{proposition}
+    In a commutative ring $R$, all prime ideals are radical.
+  \end{proposition}
+  \begin{proof}
+    If $\mathfrak{p}$ is a prime ideal and $f \in \sqrt \mathfrak{p}$, then either $f \in \mathfrak{p}$ or $f^{r-1} \in \mathfrak{p}$. Repeat this for $f^{r-1}$ and so on, and we see that $f \in \mathfrak{p}$.
+  \end{proof}
+
+  \begin{proposition}
+    A closed subset of $Y \subseteq \mathbb{A}^n$ is irreducible if and only if its corresponding ideal $I(Y)$ is prime. Equivalently, we could say that a radical ideal $\mathfrak{a}$ is prime if and only if its zero set $Z(\mathfrak{a})$ is irreducible.
+  \end{proposition}
+  \begin{proof}
+    Assume $Y$ is irreducible. If $fg \in I(Y)$ then $Z(fg) \supseteq Y$ ($Y$ is closed), so $Y \subseteq Z(f) \cup Z(g)$. Therefore we can write $Y$ as a union of closed sets $Y = (Z(f) \cap Y) \cup (Z(g) \cap Y)$. $Y$ is irreducible so without loss of generality, say $Y = Z(f) \cap Y$. This means $Y \subseteq Z(f)$. Therefore $f \in I(Y)$.
+
+    Conversely, assume that $\mathfrak{a}$ is a prime ideal (and therefore also radical). If $Z(\mathfrak{a}) = Z(\mathfrak{a}_1) \cup Z(\mathfrak{a}_2)$, then $Z(\mathfrak{a}) = Z(\mathfrak{a}_1 \mathfrak{a}_2)$. This means $\mathfrak{a} = \sqrt{\mathfrak{a}_1 \mathfrak{a_2}}$, so $\mathfrak{a}_1 \mathfrak{a}_2 \subseteq \mathfrak{a}$. Since $\mathfrak{a}$ is prime, we have either $\mathfrak{a}_1 \subseteq \mathfrak{a}$ or $\mathfrak{a}_2 \subseteq \mathfrak{a}$. Therefore $Z(\mathfrak{a})$ is irreducible.
+  \end{proof}
+  
+  With this we can see our first examples of affine varieties. Notice how we use algebra argue about the geometric property of irreducibility.
+
+  \begin{example}
+    The zero ideal $(0) \subseteq A$ is prime, so $Z(0) = \mathbb{A}^n$ is irreducible.
+  \end{example}
+
+  \begin{example}
+    If $f \in A$ is irreducible then since $A$ is a UFD $f$ is prime. Therefore $Z(f)$ is irreducible. 
+  \end{example}
+
+  \begin{nonexample}
+    Let $k = \mathbb{R}$, a field which is not algebraically closed. Let $A = k[x]$. Then $I(Z(x^2 + 1)) = A \ne (x^2 + 1)$. The whole correspondence breaks down.
+  \end{nonexample}
+
+  \begin{definition}
+    For a closed subset $Y \subseteq \mathbb{A}^n$, the \emph{affine coordinate ring} of $Y$ is
+    \[
+      A(Y) = A/I(Y).
+    \]
+  \end{definition}
+
+  If $Y$ is an affine variety then $A(Y)$ is an integral domain, and $A(Y)$ is a finitely-generated $k$-algebra. Conversely, any integral domain that is a finitely-generated $k$-algebra is the affine coordinate ring of some affine variety.
+\end{document}
