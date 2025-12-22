@@ -1,0 +1,17 @@
+%!tex root: ../main.tex
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+  \begin{exercise}
+    \begin{enumerate}[label=(\alph*)]
+      \item Let $Y$ be the plane curve $y = x^2$ (i.e., $Y$ is the zero set of the polynomial $f = y - x^2$). Show that $A(Y)$ is isomorphic to a polynomial ring in one variable over $k$.
+      \item Let $Z$ be the plane curve $xy = 1$. Show that $A(Z)$ is not isomorphic to a polynomial ring in one variable over $k$.
+    \end{enumerate}
+  \end{exercise}
+  \begin{proof}
+    \begin{enumerate}[label=(\roman*)]
+      \item $y - x^2$ is irreducible, so $I(Y) = (y - x^2)$. Therefore $A(Y) = k[x,y]/(y-x^2) = k[x]$.
+      \item Similarly, $A(Z) = k[x,y]/(xy - 1) = k[x, x^{-1}]$, which is clearly not isomorphic to a polynomial ring in one variable over $k$.
+    \end{enumerate}
+  \end{proof}
+\end{document}

@@ -1,0 +1,33 @@
+%!tex root: ./main.tex
+\ProvidesPackage{akshayexercise}
+
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath, amsthm, amssymb, mathrsfs}
+\usepackage{dsfont}
+\usepackage{hyperref}
+\usepackage{bookmark}
+\renewcommand*{\proofname}{Solution}
+\renewcommand{\qedsymbol}{$\blacksquare$}
+
+\usepackage{tikz}
+\usetikzlibrary{decorations.markings}
+
+\usepackage{tikz-cd}
+
+\usepackage{xcolor}
+\newcommand\myworries[1]{\textcolor{red}{#1}}
+
+\usepackage{enumitem}
+
+\newtheoremstyle{myexercise}
+  {1em}     % Space above
+  {3pt}     % Space below
+  {\normalfont} % Font (normal, not bold)
+  {}        % Indentation
+  {\bfseries} % Title formatting (bold)
+  {.}        % Punctuation after title
+  { }        % Space after title
+  {}         % Define title format
+
+\theoremstyle{myexercise}
+\newtheorem{exercise}{Exercise}
