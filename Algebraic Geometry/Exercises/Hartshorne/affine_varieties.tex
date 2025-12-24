@@ -9,9 +9,9 @@
     \end{enumerate}
   \end{exercise}
   \begin{proof}
-    \begin{enumerate}[label=(\roman*)]
+    \begin{enumerate}[label=(\alph*)]
       \item $y - x^2$ is irreducible, so $I(Y) = (y - x^2)$. Therefore $A(Y) = k[x,y]/(y-x^2) = k[x]$.
-      \item Similarly, $A(Z) = k[x,y]/(xy - 1) = k[x, x^{-1}]$, which is clearly not isomorphic to a polynomial ring in one variable over $k$.
+      \item Similarly, $A(Z) = k[x,y]/(xy - 1) = k[x, x^{-1}]$. Suppose there existed an isomorphism $\phi: k[x, x^{-1}] \to k[t]$. $x$, $x^{-1}$ and all non-zero elements of $k$ are units in $k[x,x^{-1}]$. Therefore, their images under $\phi$ must be units. However, $k[t]^\times = k \setminus \{0\}$, so there is no element of $k[x, x^{-1}]$ which maps to $t$, since the elements of $k[x, x^{-1}]$ are polynomials in $x$ and $x^{-1}$ and $\phi$ is a ring homomorphism. This contradicts the injectivity of $\phi$.
     \end{enumerate}
   \end{proof}
 \end{document}
