@@ -4,6 +4,8 @@
 \begin{document}
 We fix an algebraically closed field $k$ which we work over for the entirety of this chapter, and let $A = k[x_1, \dots, x_n]$.
 
+  \section{Algebraic sets and radical ideals}
+  
   \begin{definition}
     The \emph{zero set} for an ideal $\mathfrak{a} \subseteq A$ is the set
     \[
@@ -62,8 +64,10 @@ We fix an algebraically closed field $k$ which we work over for the entirety of 
     $\overline{Y}$ is closed, so we can write $\overline{Y} = Z(\mathfrak{a})$ for some ideal $\mathfrak{a} \subseteq A$. Then we know $Y \subseteq Z(\mathfrak{a})$ so $I(Y) \supseteq I(Z(\mathfrak{a})) \supseteq \mathfrak{a}$. Applying $Z$ to $\mathfrak{a} \subseteq I(Y)$ gives the result.
   \end{proof}
 
-  So although we do not quite have a bijective correspondence between subsets of $\mathbb{A}^n$ and ideals of $A$, we do have a bijective correspondence of \emph{closed} subsets and \emph{radical} ideals, given by $Y \mapsto I(Y)$ and $\mathfrak{a} \mapsto Z(\mathfrak{a})$. We explore this correspondence a little bit further.
+  So although we do not quite have a bijective correspondence between subsets of $\mathbb{A}^n$ and ideals of $A$, we do have a bijective correspondence of \emph{closed} subsets and \emph{radical} ideals, given by $Y \mapsto I(Y)$ and $\mathfrak{a} \mapsto Z(\mathfrak{a})$.
 
+  \section{Irreducibility}
+  
   \begin{definition}
     A non-empty subset $Y$ of a topological space $X$ is \emph{irreducible} if for any closed sets $Y_1$, $Y_2$,
     \[
@@ -86,7 +90,7 @@ We fix an algebraically closed field $k$ which we work over for the entirety of 
     A closed subset of $Y \subseteq \mathbb{A}^n$ is irreducible if and only if its corresponding ideal $I(Y)$ is prime. Equivalently, we could say that a radical ideal $\mathfrak{a}$ is prime if and only if its zero set $Z(\mathfrak{a})$ is irreducible.
   \end{proposition}
   \begin{proof}
-    Assume $Y$ is irreducible. If $fg \in I(Y)$ then $Z(fg) \supseteq Y$ ($Y$ is closed), so $Y \subseteq Z(f) \cup Z(g)$. Therefore we can write $Y$ as a union of closed sets $Y = (Z(f) \cap Y) \cup (Z(g) \cap Y)$. $Y$ is irreducible so without loss of generality, say $Y = Z(f) \cap Y$. This means $Y \subseteq Z(f)$. Therefore $f \in I(Y)$.
+    Assume $Y$ is irreducible. If $fg \in I(Y)$ then $Z(fg) \supseteq Y$ ($Y$ is closed), so $Y \subseteq Z(f) \cup Z(g)$. Therefore we can write $Y$ as a union of closed sets $Y = (Z(f) \cap Y) \cup (Z(g) \cap Y)$. $Y$ is irreducible so $Y = Z(f) \cap Y$ without loss of generality. This means $Y \subseteq Z(f)$. Therefore $f \in I(Y)$.
 
     Conversely, assume that $\mathfrak{a}$ is a prime ideal (and therefore also radical). If $Z(\mathfrak{a}) = Z(\mathfrak{a}_1) \cup Z(\mathfrak{a}_2)$, then $Z(\mathfrak{a}) = Z(\mathfrak{a}_1 \mathfrak{a}_2)$. This means $\mathfrak{a} = \sqrt{\mathfrak{a}_1 \mathfrak{a_2}}$, so $\mathfrak{a}_1 \mathfrak{a}_2 \subseteq \mathfrak{a}$. Since $\mathfrak{a}$ is prime, we have either $\mathfrak{a}_1 \subseteq \mathfrak{a}$ or $\mathfrak{a}_2 \subseteq \mathfrak{a}$. Therefore $Z(\mathfrak{a})$ is irreducible.
   \end{proof}
@@ -98,13 +102,48 @@ We fix an algebraically closed field $k$ which we work over for the entirety of 
   \end{example}
 
   \begin{example}
-    If $f \in A$ is irreducible then since $A$ is a UFD $f$ is prime. Therefore $Z(f)$ is irreducible. 
+    If $f \in A$ is irreducible then since $A$ is a unique factorisation domain, $f$ is prime. Therefore $Z(f)$ is irreducible. 
   \end{example}
 
   \begin{nonexample}
     Let $k = \mathbb{R}$, a field which is not algebraically closed. Let $A = k[x]$. Then $I(Z(x^2 + 1)) = A \ne (x^2 + 1)$. The whole correspondence breaks down.
   \end{nonexample}
 
+  \begin{definition}
+    A topological space $X$ is \emph{Noetherian} if all descending chains of closed subsets stabilise. That is, if
+    \[
+      Y_1 \supseteq Y_2 \supseteq \cdots
+    \]
+    are closed subsets of $X$, then there exists a positive integer $r$ such that $Y_r = Y_{r+1} = \cdots$.
+  \end{definition}
+
+  Descending, because the correspondence between subsets and ideals is inclusion reversing. The following example elaborates.
+
+  \begin{example}
+    $\mathbb{A}^n$ is Noetherian.
+  \end{example}
+  To see this, notice that any descending chain of closed subsets of $\mathbb{A}^n$ gives
+  \[
+    I(Y_1) \subseteq I(Y_2) \subseteq \cdots,
+  \]
+  which stabilises since $A$ is a Noetherian ring. Therefore by applying $Z$ we get that the original chain stabilises.
+
+  \begin{proposition}
+    Let $X$ be a Noetherian topological space. All closed subsets $Y \subseteq X$ have a unique (up to reordering and removing nested sets) decomposition into finitely many irreducible closed subsets
+    \[
+      Y = Y_1 \cup \cdots \cup Y_r, \quad Y_i \not\subseteq Y_j \text{ for } i \ne j.
+    \]
+  \end{proposition}
+  \begin{proof}
+    First we do existence, then we do uniqueness. $Y$ is either irreducible or not. If it is irreducible, we are done. If not, then write $Y = Y_1 \cup Y_2$. Each of $Y_1$ and $Y_2$ are either irreducible or not. If a subset is not irreducible, reduce it. Continue like this until there are only irreducible subsets left. Since $X$ is Noetherian, this process must terminate in finitely many steps.
+
+    Suppose there is another decomposition $Y = Y'_1 \cup \cdots \cup Y'_s$. Then for all $i$, $Y_i$ is covered by these sets, so $Y_i = (Y_i \cap Y'_1) \cup \cdots \cup (Y_i \cap Y'_s)$. However, $Y_i$ is irreducible so $Y_i \subseteq Y'_j$ for some $j$. Similarly, $Y'_j \subseteq Y_k$ for some $k$. This means $Y_i \subseteq Y_k$, so $k=i$. Overall we have $Y_i \subseteq Y'_j \subseteq Y_i$, so $Y_i = Y'_j$. Therefore the two decompositions are the same up to reordering.
+  \end{proof}
+
+  So in particular, any closed subset of $\mathbb{A}^n$ can be written uniquely as a union of affine varieties.
+
+  \section{Dimension}
+  
   \begin{definition}
     For a closed subset $Y \subseteq \mathbb{A}^n$, the \emph{affine coordinate ring} of $Y$ is
     \[
@@ -113,4 +152,73 @@ We fix an algebraically closed field $k$ which we work over for the entirety of 
   \end{definition}
 
   If $Y$ is an affine variety then $A(Y)$ is an integral domain, and $A(Y)$ is a finitely-generated $k$-algebra. Conversely, any integral domain that is a finitely-generated $k$-algebra is the affine coordinate ring of some affine variety.
+
+  The coordinate ring of a closed subset $Y$ can be thought of as the polynomials on $Y$. For example, if $Y = Z(f)$ for an irreducible polynomial $f \in A$, then $g \in A(Y)$ is a polynomial such that the variables satisfy the relation given by $f$. They are `in the world of $Y$'.
+
+  \begin{definition}
+    Let $X$ be a topological space. The \emph{dimension} of $X$, denoted $\dim X$, is the maximum non-negative integer $n$ such that there exists an ascending chain of distinct irreducible closed subsets of $X$
+    \[
+      Z_0 \subsetneq \cdots \subsetneq Z_n.
+    \]
+    The \emph{dimension} of an affine variety is its dimension as a topological space.
+  \end{definition}
+  We start from $Z_0$ because we want to allow spaces to be $0$-dimensional.
+
+  \begin{definition}
+    Let $A$ be a ring, and $\mathfrak{p} \subseteq A$ a prime ideal. The height of $\mathfrak{p}$, denoted $\operatorname{height} \mathfrak{p}$, is the maximum non-negative integer $n$ such that there exists an ascending chain of distinct prime ideals
+    \[
+      \mathfrak{p}_0 \subsetneq \cdots \subsetneq \mathfrak{p}_n = \mathfrak{p}.
+    \]
+  \end{definition}
+
+  \begin{definition}
+    Let $A$ be a ring. The \emph{(Krull) dimension} of $A$, denoted $\dim A$, is the maximum of the heights of all prime ideals of $A$. That is, it is the maximum non-negative integer $n$ such that there exists an ascending chain of distinct prime ideals
+    \[
+      \mathfrak{p}_0 \subsetneq \cdots \subsetneq \mathfrak{p}_n.
+    \]
+  \end{definition}
+
+  \begin{proposition}
+    Let $Y$ be a closed subset of $\mathbb{A}^n$. Its dimension is equal to the dimension of its coordinate ring. That is,
+    \[
+      \dim Y = \dim A(Y).
+    \]
+  \end{proposition}
+  \begin{proof}
+    There is a bijective correspondence between irreducible closed subsets of $Y$ and prime ideals containing $I(Y)$. There is also a bijective correspondence between prime ideals containing $I(Y)$ and prime ideals of $A(Y)$. Therefore the maximum length of a chain of prime ideals in $A(Y)$ is also the maximum length of a chain of closed irreducible subsets of $Y$.
+  \end{proof}
+
+  \begin{definition}
+    Let $k \subseteq K$ be a field extension. Let $E = \{a_1, \dots, a_n\}$ be a non-empty finite subset of $K$. $E$ is \emph{algebraically independent} over $k$ if for all $f \in k[x_1, \dots, x_n]$, we have $f(a_1, \dots, a_n) \ne 0$. 
+  \end{definition}
+
+  \begin{definition}
+    Let $k \subseteq K$ be a field extension. The \emph{transcendence degree} of $K$ over $k$, denoted $\operatorname{trdeg}_k K$, is the maximum possible cardinality of an algebraically independent subset of $K$.
+  \end{definition}
+
+  \begin{proposition}
+    The transcendence degree of $\operatorname{frac}A$ over $k$ is $\operatorname{trdeg}_k k(x_1, \dots, x_n) = n$.
+  \end{proposition}
+
+  \begin{theorem}
+    Let $k$ be a field and $B$ an integral domain which is a finitely-generated $k$-algebra. Then
+    \begin{enumerate}[label=(\roman*)]
+      \item $\dim B = \operatorname{trdeg}_k(\operatorname{frac}B)$
+      \item For all prime ideals $\mathfrak{p} \subseteq B$, we have
+        \[
+          \operatorname{height}\mathfrak{p} + \dim(B/\mathfrak{p}) = \dim B
+        \]
+    \end{enumerate}
+  \end{theorem}
+
+  \begin{corollary}
+    $\dim \mathbb{A}^n = n$.
+  \end{corollary}
+  \begin{proof}
+    We know $\dim \mathbb{A}^n = \dim A(\mathbb{A}^n)$. Since $A(\mathbb{A}^n) = A$, which is an integral domain and a finitely generated $k$-algebra, we can apply (i) of the theorem along with the proposition to deduce the result.
+  \end{proof}
+
+  \begin{proposition}
+    A subset $Y \subseteq \mathbb{A}^n$ is an affine variety with dimension $n-1$ if and only if it is the zero set of a non-constant irreducible polynomial in $A$. 
+  \end{proposition}
 \end{document}
