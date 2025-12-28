@@ -21,4 +21,19 @@
   \begin{proof}
     It is easy to verify that $Y = Z(y - x^2, z - x^3)$. Then $A/(y - x^2, z - x^3) = k[x]$, which is a principal ideal domain, so in particular an integral domain, meaning $(y - x^2, z - x^3)$ is prime, so $Y$ is an affine variety. Also, this tells us that $I(Y) = (y - x^2, z - x^2)$ since all prime ideals are radical, so $y - x^2$ and $z - x^2$ are generators for $I(Y)$. We already saw that $A(Y) = A/(y - x^2, z - x^3) = k[x]$. To see that $Y$ has dimension $1$, observe that $\dim A(Y) = \operatorname{trdeg}_k k(x) = 1$.
   \end{proof}
+
+  \begin{exercise}
+    Let $Y$ be the algebraic set in $\mathbb{A}^3$ defined by the two polynomials $x^2 - yz$ and $xz - x$. Show that  $Y$ is a union of three irreducible components. Describe them and find their prime ideals.
+  \end{exercise}
+  \begin{proof}
+    \begin{align*}
+      Y &= Z(x^2 - yz, xz - x) \\
+        &= Z(x^2 - yz) \cap (Z(x) \cup Z(z - 1)) \\
+        &= (Z(x^2 - yz) \cap Z(x)) \cup (Z(x^2 - yz) \cap Z(z - 1)) \\
+        &= ((Z(y) \cup Z(z)) \cap Z(x)) \cup (Z(x^2 - y) \cap Z(z - 1)) \\
+        &= (Z(y) \cap Z(x)) \cup (Z(z) \cap Z(x)) \cup (Z(x^2 - y) \cap Z(z - 1)) \\
+        &= Z(x,y) \cup Z(x,z) \cup Z(x^2 - y, z - 1). \\
+    \end{align*}
+    These are irreducible because $(x,y)$, $(x,z)$ and $(x^2 - y, z - 1)$ are prime ideals of $k[x,y,z]$.
+  \end{proof}
 \end{document}
