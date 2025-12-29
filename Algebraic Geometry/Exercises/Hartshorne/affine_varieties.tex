@@ -52,4 +52,13 @@
 
     Now we show that if $B$ is a finitely generated $k$-algebra with no nilpotent elements then it is isomorphic to a coordinate ring. $B$ is finitely generated, say by $n$ elements, so there is a surjective homomorphism $\phi: A \to B$. It is surjective, so by the isomorphism theorem $A/\ker\phi \cong B$. Let $Y = Z(\ker\phi)$. $\phi$ is a homomorphism, so if $f^r \in \ker\phi$, then that means $\phi(f^r) = \phi(f)^r = 0$, implying $f \in \ker\phi$, since $B$ has no nilpotent elements. In other words $\ker\phi$ is a radical ideal. Therefore $A(Y) = A/I(Y) = A/\ker\phi \cong B$.
   \end{proof}
+
+  \begin{exercise}
+    Any non-empty open subset of an irreducible topological space is dense and irreducible. If $Y$ is subset of a topological space $X$, which is irreducible in its induced topology, then the closure $\overline{Y}$ is also irreducible.
+  \end{exercise}
+  \begin{proof}
+    Let $Z$ be an irreducible topological space and $U \subseteq Z$ be non-empty and open. Let $V = Z \setminus U$ be the complement of $U$. $V$ is closed. We can write $Z = \overline{U} \cup V$, a union of closed sets. $Z$ is irreducible, so either $\overline{U} = Z$ or $V = Z$. $U$ was non-empty, so we cannot have $V = Z$. Therefore $\overline{U} = Z$. Suppose, for contradiction, that $U$ is not irreducible. Then we could write $U = U_1 \cup U_2$, where $U_1$ and $U_2$ are closed proper subsets of $U$. Then $U_1$ and $U_2$ are also closed in $Z$, and therefore their union $U$ is closed in $Z$. Then we could write $Z = U \cup V$. Since $Z$ is irreducible, either $U = Z$ or $V = Z$, but $U$ is non-empty so we know $V \ne Z$. Therefore $U = Z$, but then $U$ is irreducible.
+    
+    Suppose, for contradiction, that $\overline{Y}$ is not irreducible. Then we can write $\overline{Y} = Y_1 \cup Y_2$, where $Y_1$ and $Y_2$ are closed proper subsets of $\overline{Y}$. $\overline{Y}$ is the minimal closed set containing $Y$, so $Y_1, Y_2 \subsetneq Y$. This contradicts $Y$ being irreducible as a subspace.
+  \end{proof}
 \end{document}
