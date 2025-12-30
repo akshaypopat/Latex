@@ -23,10 +23,14 @@ We fix an algebraically closed field $k$ which we work over for the entirety of 
     \emph{Affine $n$-space} over $k$, denoted $\mathbb{A}^n$, is the space $k^n$ equipped with the \emph{Zariski topology}, the topology where open sets are complements of algebraic sets. Equivalently, it is the topology where the closed sets are exactly the algebraic sets.
   \end{definition}
 
+  \begin{example}
+    $\mathbb{A}^2 \ncong \mathbb{A}^1 \times \mathbb{A}^1$.
+  \end{example}
+
   \begin{definition}
     The \emph{ideal} of a subset $Y \subseteq \mathbb{A}^n$, denoted $I(Y)$, is the set of polynomials that vanish on $Y$. That is,
     \[
-      I(Y) = \left\{ f \in A \; \middle| \; f(P) = 0 \text{ for all } P \in Y \right\}
+      I(Y) = \left\{ f \in A \; \middle| \; f(P) = 0 \text{ for all } P \in Y \right\}.
     \]
   \end{definition}
 
@@ -71,6 +75,15 @@ We fix an algebraically closed field $k$ which we work over for the entirety of 
   \begin{definition}
     A non-empty subset $Y$ of a topological space $X$ is \emph{irreducible} if it cannot be written as a union $Y = Y_1 \cup Y_2$, where $Y_1$ and $Y_2$ are both proper closed subsets of $Y$.
   \end{definition}
+
+  \begin{proposition}
+    Let $X$ be a topological space. $X$ is irreducible if and only if all non-empty open subsets of $X$ are dense.
+  \end{proposition}
+  \begin{proof}
+    Let $U$ be a non-empty open subset of $X$. Let $V = X \setminus U$. Write $X = \overline{U} \cup V$, a union of closed sets. $X$ is irreducible so $X = \overline{U}$ or $X = V$. $U$ is non-empty, so $X \ne V$. Therefore $\overline{U} = X$.
+
+    Let $X$ be a topological space such that all non-empty open subsets are dense. Suppose, for contradiction, that $X$ is not irreducible. Then we can write $X = X_1 \cup X_2$, where $X_1$ and $X_2$ are closed proper subsets. Then $(X \setminus X_1) \cap (X \setminus X_2) = \varnothing$, so $(X \setminus X_1) \subseteq X_2$. Since $(X \setminus X_1)$ is open and non-empty, it is dense, so $X \subseteq X_2$, a contradiction.
+  \end{proof}
 
   \begin{definition}
     A subset $Y \subseteq \mathbb{A}^n$ is an \emph{affine variety} if it is closed and irreducible.
