@@ -57,8 +57,31 @@
     Any non-empty open subset of an irreducible topological space is dense and irreducible. If $Y$ is subset of a topological space $X$, which is irreducible in its induced topology, then the closure $\overline{Y}$ is also irreducible.
   \end{exercise}
   \begin{proof}
-    Let $Z$ be an irreducible topological space and $U \subseteq Z$ be non-empty and open. Let $V = Z \setminus U$ be the complement of $U$. $V$ is closed. We can write $Z = \overline{U} \cup V$, a union of closed sets. $Z$ is irreducible, so either $\overline{U} = Z$ or $V = Z$. $U$ was non-empty, so we cannot have $V = Z$. Therefore $\overline{U} = Z$. Suppose, for contradiction, that $U$ is not irreducible. Then we could write $U = U_1 \cup U_2$, where $U_1$ and $U_2$ are closed proper subsets of $U$. There exist closed sets $W_1$ and $W_2$ such that $U_1 = U \cap W_1$ and $U_2 = U \cap W_2$. Then we can write $Z = (W_1 \cup W_2) \cup V$. We know $Z$ is irreducible and $Z \ne V$, so $Z = W_1 \cup W_2$. Again by irreducibility, we have that $Z = W_1$, without loss of generality. Then $U_1 = U \cap Z = U$, which contradicts $U_1$ being a proper subset.
+    Let $Z$ be an irreducible topological space and $U \subseteq Z$ be non-empty and open. Let $V = Z \setminus U$ be the complement of $U$. $V$ is closed. We can write $Z = \overline{U} \cup V$, a union of closed sets. $Z$ is irreducible, so either $\overline{U} = Z$ or $V = Z$. $U$ was non-empty, so we cannot have $V = Z$. Therefore $\overline{U} = Z$. Suppose, for contradiction, that $U$ is not irreducible. Then we could write $U = U_1 \cup U_2$, where $U_1$ and $U_2$ are closed proper subsets of $U$. There exist closed sets $W_1$ and $W_2$ such that $U_1 = U \cap W_1$ and $U_2 = U \cap W_2$. Then we can write $Z = (W_1 \cup W_2) \cup V$. We know $Z$ is irreducible and $Z \ne V$, so $Z = W_1 \cup W_2$. Again by irreducibility, we have, without loss of generality, that $Z = W_1$. Then $U_1 = U \cap Z = U$, which contradicts $U_1$ being a proper subset.
     
     Suppose, for contradiction, that $\overline{Y}$ is not irreducible. Then we can write $\overline{Y} = Y_1 \cup Y_2$, where $Y_1$ and $Y_2$ are closed proper subsets of $\overline{Y}$. There exist closed sets $V_1$ and $V_2$ such that $Y_1 = \overline{Y} \cap V_1$ and $Y_2 = \overline{Y} \cap V_2$. Then we can write $Y = (\overline{Y} \cap V_1 \cap Y) \cup (\overline{Y} \cap V_2 \cap Y)$. Since $Y$ is irreducible, $Y = \overline{Y} \cap V_1 \cap Y$ without loss of generality. Therefore $Y \subseteq \overline{Y} \cap V_1 \subseteq \overline{Y}$. Since $\overline{Y}$ is the minimal closed set containing $Y$, we have $\overline{Y} \cap V_1 = \overline{Y}$. Therefore $Y_1 = \overline{Y}$, which is a contradiction.
+  \end{proof}
+
+  \begin{exercise}
+    \begin{enumerate}[label=(\alph*)]
+      \item Show that the following conditions are equivalent for a topological space $X$: (i) $X$ is Noetherian; (ii) every non-empty family of closed subsets has a minimal element; (iii) $X$ satisfies the ascending chain condition for open sets; (iv) every non-empty family of open sets has a maximal element.
+      \item A Noetherian topological space is \emph{quasi-compact}, i.e., every open cover has a finite subcover.
+    \end{enumerate}
+  \end{exercise}
+  \begin{proof}
+    \begin{enumerate}[label=(\alph*)]
+      \item (i)$\Rightarrow$(ii). If there were a non-empty family without a minimal element, then we could construct a descending chain that does not stabilise.
+
+        (ii)$\Rightarrow$(i). Given a descending chain $(Y_i)_{i=1}^\infty$, we know there is a minimal element, say $Y_r$. Then for all $s > r$, we know $Y_s \subseteq Y_r$, but $Y_r$ is minimal, so $Y_s = Y_r$.
+
+        Similarly (iii)$\Leftrightarrow$(iv).
+
+        (i)$\Leftrightarrow$(iii). Take complements.
+      \item Let $X$ be a Noetherian topological space and let $\{U_\alpha\}$ be an open cover of $X$. Suppose $\{U_\alpha\}$ does not have a finite subcover. Choose a set $U_1$ from the cover. $\{U_1\}$ is not a cover, so there exists a set $U_2 \not\subseteq U_1$. $\{U_1, U_2\}$ is not a cover, so there exists a set $U_3 \not\subseteq U_1 \cup U_2$. Continuing to choose sets in this way, we obtain a countable subcollection such that, by construction,
+        \[
+          X \setminus U_1 \supsetneq X \setminus (U_1 \cup U_2) \supsetneq \cdots
+        \]
+        is a non-stabilising descending chain of closed subsets of $X$, a contradiction.
+    \end{enumerate}
   \end{proof}
 \end{document}
