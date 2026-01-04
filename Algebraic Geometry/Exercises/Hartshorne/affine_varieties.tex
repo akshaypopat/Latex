@@ -66,6 +66,8 @@
     \begin{enumerate}[label=(\alph*)]
       \item Show that the following conditions are equivalent for a topological space $X$: (i) $X$ is Noetherian; (ii) every non-empty family of closed subsets has a minimal element; (iii) $X$ satisfies the ascending chain condition for open sets; (iv) every non-empty family of open sets has a maximal element.
       \item A Noetherian topological space is \emph{quasi-compact}, i.e., every open cover has a finite subcover.
+      \item Any subset of a Noetherian topological space must be Noetherian in its induced topology.
+      \item A Noetherian space which is also Hausdorff must be a finite set with the discrete topology.
     \end{enumerate}
   \end{exercise}
   \begin{proof}
@@ -82,6 +84,14 @@
           X \setminus U_1 \supsetneq X \setminus (U_1 \cup U_2) \supsetneq \cdots
         \]
         is a non-stabilising descending chain of closed subsets of $X$, a contradiction.
+      \item \myworries{sorry}
+      \item Let $X$ be a Noetherian Hausdorff space. Let $x \in X$ be arbitrary. Suppose, for contradiction, that $\{x\}$ is not open. Let $E$ be a minimal open set containing $x$, which exists because $X$ is Noetherian. $\{x\}$ is not open, so there exists some element $y \in E$ which is not $x$. $X$ is Hausdorff, so there exists an open neighbourhood $U_x$ of $x$ which does not contain $y$. Then $U_x \cap E$ is an open set containing $x$ and is a proper subset of $E$, a contradiction.
+
+        If $X$ were infinite, we could choose distinct elements $x_1, x_2, \dots$ and construct a non-stabilising ascending chain of open sets
+        \[
+          \{x_1\} \subsetneq \{x_1, x_2\} \subsetneq \cdots,
+        \]
+        which contradicts $X$ being Noetherian.
     \end{enumerate}
   \end{proof}
 \end{document}
