@@ -84,10 +84,16 @@
           X \setminus U_1 \supsetneq X \setminus (U_1 \cup U_2) \supsetneq \cdots
         \]
         is a non-stabilising descending chain of closed subsets of $X$, a contradiction.
-      \item \myworries{sorry}
+      \item Let $X$ be a Noetherian topological space, $Y \subseteq X$ a subset and $V_1 \supseteq V_2 \supseteq \cdots$ a descending chain of closed subsets of $Y$. Then, for all $i$, there exist closed sets $W_i$ such that $V_i = Y \cap W_i$. Since $X$ is Noetherian, $W_1 \supseteq W_1 \cap W_2 \supseteq \cdots$ stabilises, so $$Y \cap W_1 \supseteq Y \cap (W_1 \cap W_2) \supseteq \cdots$$ also stabilises. Notice that for all $i$, 
+        \begin{align*}
+          Y \cap (W_1 \cap \cdots \cap W_i) &= (Y \cap W_1) \cap \cdots \cap (Y \cap W_i) \\
+                                            &= V_1 \cap \cdots \cap V_i \\
+                                            &= V_i,
+        \end{align*}
+        so $V_1 \supseteq V_2 \supseteq \cdots$ stabilises.
       \item Let $X$ be a Noetherian Hausdorff space. Let $x \in X$ be arbitrary. Suppose, for contradiction, that $\{x\}$ is not open. Let $E$ be a minimal open set containing $x$, which exists because $X$ is Noetherian. $\{x\}$ is not open, so there exists some element $y \in E$ which is not $x$. $X$ is Hausdorff, so there exists an open neighbourhood $U_x$ of $x$ which does not contain $y$. Then $U_x \cap E$ is an open set containing $x$ and is a proper subset of $E$, a contradiction.
 
-        If $X$ were infinite, we could choose distinct elements $x_1, x_2, \dots$ and construct a non-stabilising ascending chain of open sets
+        If $X$ were infinite, we could choose distinct points $x_1, x_2, \dots \in X$ and construct a non-stabilising ascending chain of open sets
         \[
           \{x_1\} \subsetneq \{x_1, x_2\} \subsetneq \cdots,
         \]
