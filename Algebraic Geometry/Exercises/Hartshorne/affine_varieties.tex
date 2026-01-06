@@ -1,5 +1,5 @@
-%!tex root: ../main.tex
-\documentclass[../main.tex]{subfiles}
+%!tex root: ./main.tex
+\documentclass[./main.tex]{subfiles}
 
 \begin{document}
   \begin{exercise}
@@ -91,13 +91,11 @@
                                             &= V_i,
         \end{align*}
         so $V_1 \supseteq V_2 \supseteq \cdots$ stabilises.
-      \item Let $X$ be a Noetherian Hausdorff space. Let $x \in X$ be arbitrary. Suppose, for contradiction, that $\{x\}$ is not open. Let $E$ be a minimal open set containing $x$, which exists because $X$ is Noetherian. $\{x\}$ is not open, so there exists some element $y \in E$ which is not $x$. $X$ is Hausdorff, so there exists an open neighbourhood $U_x$ of $x$ which does not contain $y$. Then $U_x \cap E$ is an open set containing $x$ and is a proper subset of $E$, a contradiction.
-
-        If $X$ were infinite, we could choose distinct points $x_1, x_2, \dots \in X$ and construct a non-stabilising ascending chain of open sets
-        \[
-          \{x_1\} \subsetneq \{x_1, x_2\} \subsetneq \cdots,
-        \]
-        which contradicts $X$ being Noetherian.
+      \item Let $X$ be a Noetherian Hausdorff space. We can write \(X\) as a union of closed irreducible subsets \(X = Y_1 \cup \cdots \cup Y_n\). \(X\) is Hausdorff so all \(Y_i\) are Hausdorff. Given two distinct points \(x,y \in Y_i\) there are disjoint open neighbourhoods \(U_x\) of \(x\) and \(U_y\) of \(y\). Then \((Y_i \setminus U_x) \cup (Y_i \setminus U_y) = Y_i\), which contradicts irreducibility of \(Y_i\), so there are not two distinct points in \(Y_i\). The empty set is not irreducible so \(Y_i\) is a singleton. This holds for all \(i\), so \(X\) is finite, and a finite Hausdorff space is discrete.
     \end{enumerate}
   \end{proof}
+
+  \begin{exercise}
+    Let $Y$ be an affine variety of dimension $r$ in $\mathbb{A}^n$. Let $H$ be a hypersurface in $\mathbb{A}^n$, and assume that $Y \not\subseteq H$. Then every irreducible component of $Y \cap H$ has dimension $r - 1$.
+  \end{exercise}
 \end{document}
