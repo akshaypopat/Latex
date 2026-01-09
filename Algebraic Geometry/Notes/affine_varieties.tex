@@ -232,7 +232,20 @@ We fix an algebraically closed field $k$ which we work over for the entirety of 
     We know $\dim \mathbb{A}^n = \dim A(\mathbb{A}^n)$. Since $A(\mathbb{A}^n) = A$, which is an integral domain and a finitely generated $k$-algebra, we can apply (i) of the theorem along with the proposition to deduce the result.
   \end{proof}
 
+  \begin{theorem}[Krull's Hauptidealsatz]
+    Let \(A\) be a Noetherian ring and let \(f \in A\) be an element which is neither a zero-divisor nor a unit. Let \(\mathfrak{p}\) be a minimal prime ideal containing \(f\). Then \(\operatorname{height}\mathfrak{p} = 1\).
+  \end{theorem}
+
   \begin{proposition}
-    A subset $Y \subseteq \mathbb{A}^n$ is an affine variety with dimension $n-1$ if and only if it is the zero set of a non-constant irreducible polynomial in $A$. 
+    A Noetherian integral domain is a unique factorisation domain if and only if all prime ideals of height one are principal.
   \end{proposition}
+
+  \begin{proposition}
+    A subset $Y \subseteq \mathbb{A}^n$ is an affine variety with dimension $n-1$ if and only if it is the zero set of a non-constant irreducible polynomial in $A$.
+  \end{proposition}
+  \begin{proof}
+    Let \(Y = Z(f)\) be the zero set of a non-constant irreducible polynomial \(f \in A\). \(A\) is a Noetherian integral domain, \(f\) is not a unit, and \((f)\) is a minimal prime ideal containing \(f\), so \(\operatorname{height}(f) = 1\). Therefore \(\dim Y = n - 1\).
+
+    Conversely, let \(Y \subseteq \mathbb{A}^n\) be an affine variety with dimension \(n - 1\). Then \(\operatorname{height}I(Y) = 1\), so since \(A\) is a Noetherian unique factorisation domain, \(I(Y) = (f)\) for some irreducible \(f \in A\). Since \(\dim Y = n-1\), \(f\) is not a constant.
+  \end{proof}
 \end{document}
